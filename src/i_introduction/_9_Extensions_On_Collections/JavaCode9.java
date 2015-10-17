@@ -2,11 +2,12 @@ package i_introduction._9_Extensions_On_Collections;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import util.JavaCode;
 
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+
+import util.JavaCode;
 
 public class JavaCode9 extends JavaCode {
     public Collection<String> doSomethingStrangeWithCollection(Collection<String> collection) {

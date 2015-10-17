@@ -3,6 +3,7 @@ package vi_generics.generics
 import java.util.ArrayList
 import java.util.HashSet
 import util.TODO
+import javax.sql.rowset.Predicate
 
 fun task28() = TODO(
     """
@@ -21,11 +22,19 @@ fun task28() = TODO(
 )
 
 fun List<String>.partitionWordsAndLines(): Pair<List<String>, List<String>> {
-    task28()
-//    return partitionTo(ArrayList<String>(), ArrayList()) { s -> !s.contains(" ") }
+    return partitionTo(ArrayList<String>(), ArrayList()) { s -> !s.contains(" ") }
 }
 
 fun Set<Char>.partitionLettersAndOtherSymbols(): Pair<Set<Char>, Set<Char>> {
-    task28()
-//    return partitionTo(HashSet<Char>(), HashSet()) { c -> c in 'a'..'z' || c in 'A'..'Z'}
+    return partitionTo(HashSet<Char>(), HashSet()) { c -> c in 'a'..'z' || c in 'A'..'Z'}
+}
+
+fun <T> Iterable<T>.partitionTo(list1: MutableList<T>, list2: MutableList<T>, predicate: (T) -> Boolean): Pair<List<T>, List<T>> {
+    forEach { if (predicate(it)) list1.add(it) else list2.add(it) }
+    return Pair(list1, list2)
+}
+
+fun <T> Set<T>.partitionTo(list1: MutableSet<T>, list2: MutableSet<T>, predicate: (T) -> Boolean): Pair<Set<T>, Set<T>> {
+    forEach { if (predicate(it)) list1.add(it) else list2.add(it) }
+    return Pair(list1, list2)
 }

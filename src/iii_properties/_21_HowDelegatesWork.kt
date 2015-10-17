@@ -28,8 +28,12 @@ class D {
 class EffectiveDate<R> : ReadWriteProperty<R, MyDate> {
     var timeInMillis: Long? = null
 
-    operator override fun get(thisRef: R, property: PropertyMetadata): MyDate = todoTask21()
-    operator override fun set(thisRef: R, property: PropertyMetadata, value: MyDate) = todoTask21()
+    operator override fun get(thisRef: R, property: PropertyMetadata): MyDate {
+        return timeInMillis!!.toDate()
+    }
+    operator override fun set(thisRef: R, property: PropertyMetadata, value: MyDate) {
+        timeInMillis = value.toMillis()
+    }
 }
 
 fun MyDate.toMillis(): Long {

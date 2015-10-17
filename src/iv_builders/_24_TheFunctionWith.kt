@@ -15,17 +15,21 @@ fun todoTask24() = TODO(
     """
 )
 
-fun task24(): Boolean = todoTask24()
+fun task24(): Boolean = true
 
 fun buildString(): String {
     val stringBuilder = StringBuilder()
-    with (stringBuilder) {
+    with2 (stringBuilder) {
         append("Numbers: ")
         for (i in 1..10) {
             append(i)
         }
     }
     return stringBuilder.toString()
+}
+
+fun <O, F> with2(obj: O, function: O.() -> F): F {
+    return obj.function()
 }
 
 fun buildMap(): Map<Int, String> {

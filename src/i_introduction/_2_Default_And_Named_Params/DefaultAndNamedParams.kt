@@ -18,12 +18,13 @@ fun todoTask2_1() = TODO(
     """,
     references = { name: String -> JavaCode2().foo(name); foo(name) })
 
-fun foo(name: String): String = todoTask2_1()
+fun foo(name: String, toUpperCase: Boolean = false, number: Number = 42): String {
+    return if (toUpperCase) name.toUpperCase() + number else name + number
+}
 
 fun task2_1(): String {
-    todoTask2_1()
-//    return (foo("a") +
-//            foo("b", number = 1) +
-//            foo("c", toUpperCase = true) +
-//            foo(name = "d", number = 2, toUpperCase = true))
+    return (foo("a") +
+            foo("b", number = 1) +
+            foo("c", toUpperCase = true) +
+            foo(name = "d", number = 2, toUpperCase = true))
 }

@@ -40,8 +40,7 @@ fun struggleAgainstNPE() {
     }
 
     fun defaultValueForNull(): Int {
-        val size = files?.size()
-        return size ?: -1
+        return files?.size() ?: -1
     }
 
     fun throwNPEIfNull(): Int {
@@ -64,7 +63,9 @@ fun todoTask5(client: Client?, message: String?, mailer: Mailer) = TODO(
 fun sendMessageToClient(
         client: Client?, message: String?, mailer: Mailer
 ) {
-    todoTask5(client, message, mailer)
+    if (message != null && client?.personalInfo?.email != null) {
+        mailer.sendMessage(client?.personalInfo?.email, message)
+    }
 }
 
 class Client (val personalInfo: PersonalInfo?)

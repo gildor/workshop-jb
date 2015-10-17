@@ -17,11 +17,10 @@ class B() {
     fun foo() = notNull
 }
 
-class Commodity(data: MutableMap<String, Any?>) {
-
-    val description: String by todoTask20()
-    var price: Int by todoTask20()
-    var isAvailable: Boolean by todoTask20()
+class Commodity(val data: MutableMap<String, Any?>) {
+    val description: String by Delegates.mapVar(data, {aa, s -> description})
+    var price: Int by Delegates.mapVar(data, {aa, s -> price})
+    var isAvailable: Boolean by Delegates.mapVar(data, {aa, s -> isAvailable})
 }
 
 fun <T> todoTask20(): ReadWriteProperty<Commodity, T> = TODO(

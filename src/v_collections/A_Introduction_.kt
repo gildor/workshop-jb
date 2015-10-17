@@ -1,4 +1,4 @@
-package v_collections
+ package v_collections
 
 import java.util.HashSet
 import util.TODO
@@ -34,7 +34,6 @@ fun example0(list: List<Int>) {
 
 fun Shop.getSetOfCustomers(): Set<Customer> {
     // Return a set containing all the customers of this shop
-    todoCollectionTask()
-//    return this.customers
+    return this.customers.toSet();
 }
 

@@ -1,5 +1,6 @@
 package i_introduction._3_Lambdas
 
+import com.google.common.base.Predicate
 import util.TODO
 import com.google.common.collect.Iterables
 
@@ -35,7 +36,9 @@ fun todoTask3(collection: Collection<Int>) = TODO(
     """,
     references = { JavaCode3().task3(collection) })
 
-fun task3(collection: Collection<Int>): Boolean = todoTask3(collection)
+fun task3(collection: Collection<Int>): Boolean {
+    return collection.any { it % 42 == 0 }
+}
 
 
 

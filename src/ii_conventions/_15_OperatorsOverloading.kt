@@ -4,7 +4,7 @@ import util.TODO
 import ii_conventions.TimeInterval.*
 
 fun infixNotation() {
-    infix fun Int.foo(s: String) = "$s$this"
+    fun Int.foo(s: String) = "$s$this"
 
     1 foo "abc"
     // the same as:
@@ -42,12 +42,13 @@ fun todoTask15() = TODO(
     })
 
 fun task15_1(today: MyDate): MyDate {
-    todoTask15()
-//    return today + YEAR + WEEK
+    return today + YEAR + WEEK
 }
 
 fun task15_2(today: MyDate): MyDate {
-    todoTask15()
-//    return today + YEAR * 2 + WEEK * 3 + DAY * 5
+    return today + YEAR * 2 + WEEK * 3 + DAY * 5
 }
+
+class RepeatedTimeInterval(val ti: TimeInterval, val n: Int)
+
 
